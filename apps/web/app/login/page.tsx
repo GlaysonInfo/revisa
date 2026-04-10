@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import { BrandLockup } from "../../components/brand-lockup";
 import { PublicSiteChrome } from "../../components/public-site-chrome";
@@ -9,12 +10,18 @@ import { inferAccessRole } from "../../lib/permissions";
 
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000/api/v1";
+const API_HEALTH_URL = API_BASE_URL.replace(/\/api\/v1\/?$/, "/health");
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("admin@revisa.local");
   const [password, setPassword] = useState("Admin@12345");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    void fetch(API_HEALTH_URL, { cache: "no-store" }).catch(() => null);
+  }, []);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -34,7 +41,7 @@ export default function LoginPage() {
         localStorage.setItem("revisa_user_email", email);
         localStorage.setItem("revisa_access_role", inferAccessRole(email));
         setMessage("Login realizado com sucesso.");
-        window.location.href = "/dashboard";
+        router.push("/dashboard");
         return;
       }
 

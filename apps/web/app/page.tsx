@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { BrandLockup } from "../components/brand-lockup";
 import { PublicHeader } from "../components/public-header";
 
 const territorialCards = [

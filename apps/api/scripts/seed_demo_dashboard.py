@@ -1,6 +1,7 @@
 from datetime import UTC, datetime, timedelta
 
 from sqlalchemy import delete
+from sqlalchemy import select
 
 from app.core.database import SessionLocal, init_db
 from app.models.activity import Activity
@@ -88,9 +89,19 @@ def reset_demo_data() -> None:
         session.close()
 
 
-def seed_demo_data() -> None:
+def has_demo_data() -> bool:
+    session = SessionLocal()
+    try:
+        return session.execute(select(Citizen.id).limit(1)).scalar_one_or_none() is not None
+    finally:
+        session.close()
+
+
+def seed_demo_data(force_reset: bool = True) -> None:
     init_db()
-    reset_demo_data()
+
+    if force_reset:
+        reset_demo_data()
 
     session = SessionLocal()
     try:
@@ -320,6 +331,13 @@ def seed_demo_data() -> None:
         session.commit()
     finally:
         session.close()
+
+
+def ensure_demo_data(force_reset: bool = False) -> None:
+    init_db()
+
+    if force_reset or not has_demo_data():
+        seed_demo_data(force_reset=force_reset)
 
 
 if __name__ == "__main__":

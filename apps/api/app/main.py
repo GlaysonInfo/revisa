@@ -7,6 +7,7 @@ from app.core.database import init_db
 from app.core.error_handlers import install_error_handlers
 from app.core.logging import configure_logging
 from app.core.metrics import install_metrics
+from scripts.seed_demo_dashboard import ensure_demo_data
 
 configure_logging()
 
@@ -17,6 +18,9 @@ app = FastAPI(
 )
 
 init_db()
+
+if settings.demo_seed_on_start:
+    ensure_demo_data(force_reset=settings.demo_seed_force_reset)
 
 app.add_middleware(
     CORSMiddleware,

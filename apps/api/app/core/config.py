@@ -28,6 +28,8 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
     default_admin_email: str = "admin@revisa.local"
     default_admin_password: str = "Admin@12345"
+    demo_seed_on_start: bool = False
+    demo_seed_force_reset: bool = False
 
     model_config = SettingsConfigDict(env_file=PROJECT_ROOT / ".env", env_file_encoding="utf-8", extra="ignore")
 

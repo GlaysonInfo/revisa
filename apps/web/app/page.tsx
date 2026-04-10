@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { BrandLockup } from "../components/brand-lockup";
+import { PublicHeader } from "../components/public-header";
 
 const territorialCards = [
   {
@@ -120,42 +120,7 @@ export default function HomePage() {
   return (
     <main className="app-shell">
       <div className="app-shell__inner public-home">
-        <header className="public-header">
-          <BrandLockup />
-          <div className="public-header__right">
-            <nav className="public-nav" aria-label="Navegacao principal">
-              <Link href="#inicio" className="nav-link">
-                Inicio
-              </Link>
-              <Link href="#a-revisa" className="nav-link">
-                A REVISA
-              </Link>
-              <Link href="#atuacao" className="nav-link">
-                Atuacao
-              </Link>
-              <Link href="#servicos" className="nav-link">
-                Servicos
-              </Link>
-              <Link href="#galeria" className="nav-link">
-                Galeria
-              </Link>
-              <Link href="/participar" className="nav-link">
-                Participar
-              </Link>
-              <Link href="#contato" className="nav-link">
-                Contato
-              </Link>
-            </nav>
-            <div className="public-header__actions">
-              <Link href="/participar" className="primary-button">
-                Participar
-              </Link>
-              <Link href="/login" className="secondary-button">
-                Acesso Restrito
-              </Link>
-            </div>
-          </div>
-        </header>
+        <PublicHeader />
 
         <section id="inicio" className="public-hero">
           <div className="public-hero__grid">
@@ -384,7 +349,7 @@ export default function HomePage() {
             </article>
             <article className="contact-card">
               <strong>WhatsApp</strong>
-              <p>(31) 99975-1882</p>
+              <p>(31) 98267-3012</p>
             </article>
             <article className="contact-card">
               <strong>E-mail</strong>
@@ -413,13 +378,6 @@ export default function HomePage() {
           </div>
         </footer>
 
-        <Link
-          href="https://wa.me/5531999751882"
-          className="whatsapp-float"
-          aria-label="Falar com a REVISA no WhatsApp"
-        >
-          WhatsApp
-        </Link>
       </div>
     </main>
   );

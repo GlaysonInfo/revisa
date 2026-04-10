@@ -171,6 +171,28 @@ textarea {
   flex: 1;
 }
 
+.public-header__menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.public-header__menu-toggle span {
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--text);
+}
+
 .public-header__actions {
   display: flex;
   align-items: center;
@@ -1591,12 +1613,37 @@ textarea {
     grid-template-columns: 1fr;
   }
 
-  .public-nav {
-    align-items: flex-start;
-  }
-
   .public-header {
     position: static;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .public-header__menu-toggle {
+    display: inline-flex;
+    align-self: flex-end;
+  }
+
+  .public-header__right {
+    display: none;
+    width: 100%;
+    padding-top: 6px;
+  }
+
+  .public-header__right--open {
+    display: grid;
+    gap: 14px;
+  }
+
+  .public-nav {
+    width: 100%;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .public-nav .nav-link {
+    width: 100%;
+    padding: 6px 0;
   }
 
   .brand-lockup {

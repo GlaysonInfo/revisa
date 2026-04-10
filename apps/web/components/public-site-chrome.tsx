@@ -2,47 +2,13 @@ import Link from "next/link";
 import { ReactNode } from "react";
 
 import { BrandLockup } from "./brand-lockup";
+import { PublicHeader } from "./public-header";
 
 export function PublicSiteChrome({ children }: { children: ReactNode }) {
   return (
     <main className="app-shell">
       <div className="app-shell__inner public-home">
-        <header className="public-header">
-          <BrandLockup />
-          <div className="public-header__right">
-            <nav className="public-nav" aria-label="Navegacao principal">
-              <Link href="/#inicio" className="nav-link">
-                Inicio
-              </Link>
-              <Link href="/#a-revisa" className="nav-link">
-                A REVISA
-              </Link>
-              <Link href="/#atuacao" className="nav-link">
-                Atuacao
-              </Link>
-              <Link href="/#servicos" className="nav-link">
-                Servicos
-              </Link>
-              <Link href="/#galeria" className="nav-link">
-                Galeria
-              </Link>
-              <Link href="/participar" className="nav-link">
-                Participar
-              </Link>
-              <Link href="/contato" className="nav-link">
-                Contato
-              </Link>
-            </nav>
-            <div className="public-header__actions">
-              <Link href="/participar" className="primary-button">
-                Participar
-              </Link>
-              <Link href="/login" className="secondary-button">
-                Acesso Restrito
-              </Link>
-            </div>
-          </div>
-        </header>
+        <PublicHeader rootAnchors />
 
         {children}
 
@@ -62,13 +28,6 @@ export function PublicSiteChrome({ children }: { children: ReactNode }) {
           </div>
         </footer>
 
-        <Link
-          href="https://wa.me/5531999751882"
-          className="whatsapp-float"
-          aria-label="Falar com a REVISA no WhatsApp"
-        >
-          WhatsApp
-        </Link>
       </div>
     </main>
   );

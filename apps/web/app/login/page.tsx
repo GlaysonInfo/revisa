@@ -14,24 +14,36 @@ export default function LoginPage() {
   const [email, setEmail] = useState("admin@revisa.local");
   const [password, setPassword] = useState("Admin@12345");
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    const response = await fetch(`${API_BASE_URL}/auth/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-    const data = await response.json();
-    if (response.ok) {
-      localStorage.setItem("revisa_token", data.access_token);
-      localStorage.setItem("revisa_user_email", email);
-      localStorage.setItem("revisa_access_role", inferAccessRole(email));
-      setMessage("Login realizado com sucesso.");
-      window.location.href = "/dashboard";
-      return;
+    setIsSubmitting(true);
+    setMessage("");
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem("revisa_token", data.access_token);
+        localStorage.setItem("revisa_user_email", email);
+        localStorage.setItem("revisa_access_role", inferAccessRole(email));
+        setMessage("Login realizado com sucesso.");
+        window.location.href = "/dashboard";
+        return;
+      }
+
+      setMessage(data.detail ?? "Falha no login");
+    } catch {
+      setMessage("Nao foi possivel conectar com a API em http://localhost:8000. Verifique se o backend esta rodando.");
+    } finally {
+      setIsSubmitting(false);
     }
-    setMessage(data.detail ?? "Falha no login");
   }
 
   return (
@@ -73,8 +85,8 @@ export default function LoginPage() {
               </label>
             </div>
             <div className="form-actions">
-              <button type="submit" className="primary-button">
-                Entrar
+              <button type="submit" className="primary-button" disabled={isSubmitting}>
+                {isSubmitting ? "Entrando..." : "Entrar"}
               </button>
             </div>
             {message ? <p className="form-success">{message}</p> : null}

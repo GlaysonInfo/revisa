@@ -182,6 +182,7 @@ export default function HomePage() {
                 fill
                 className="showcase-poster__image"
                 sizes="(max-width: 980px) 100vw, 44vw"
+                priority
               />
             </article>
           </div>

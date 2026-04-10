@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 
 import { BrandLockup } from "./brand-lockup";
 
@@ -18,16 +18,31 @@ const navigation = [
 
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <main className="app-shell">
       <div className="app-shell__inner admin-layout">
         <aside className="admin-sidebar">
-          <div className="admin-sidebar__brand">
+          <div className="admin-sidebar__top">
             <BrandLockup compact />
+            <button
+              type="button"
+              className="admin-sidebar__menu-toggle"
+              aria-expanded={menuOpen}
+              aria-controls="admin-navigation"
+              aria-label={menuOpen ? "Fechar menu administrativo" : "Abrir menu administrativo"}
+              onClick={() => setMenuOpen((current) => !current)}
+            >
+              Menu
+            </button>
           </div>
 
-          <nav className="admin-sidebar__nav" aria-label="Navegacao administrativa">
+          <nav
+            id="admin-navigation"
+            className={`admin-sidebar__nav${menuOpen ? " admin-sidebar__nav--open" : ""}`}
+            aria-label="Navegacao administrativa"
+          >
             {navigation.map((item) => {
               const isActive =
                 item.href !== "#" &&
@@ -40,6 +55,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                   className={`admin-sidebar__link${isActive ? " admin-sidebar__link--active" : ""}${
                     item.href === "#" ? " admin-sidebar__link--muted" : ""
                   }`}
+                  onClick={() => setMenuOpen(false)}
                 >
                   {item.label}
                 </Link>

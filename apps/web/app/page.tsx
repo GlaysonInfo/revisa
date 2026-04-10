@@ -379,6 +379,13 @@ export default function HomePage() {
           </div>
         </footer>
 
+        <Link
+          href="https://wa.me/5531982673012"
+          className="whatsapp-float"
+          aria-label="Falar com a REVISA no WhatsApp"
+        >
+          WhatsApp
+        </Link>
       </div>
     </main>
   );

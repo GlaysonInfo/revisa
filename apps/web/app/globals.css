@@ -990,9 +990,29 @@ textarea {
   box-shadow: var(--shadow);
 }
 
-.admin-sidebar__brand {
+.admin-sidebar__brand,
+.admin-sidebar__top {
   padding-bottom: 14px;
   border-bottom: 1px solid rgba(18, 32, 47, 0.08);
+}
+
+.admin-sidebar__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-sidebar__menu-toggle {
+  display: none;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel-strong);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .admin-sidebar__nav,
@@ -1507,7 +1527,6 @@ textarea {
 }
 
 @media (max-width: 980px) {
-  .public-header,
   .public-nav,
   .admin-topbar,
   .admin-section__header,
@@ -1543,7 +1562,6 @@ textarea {
 
   .final-cta,
   .public-footer,
-  .public-header__right,
   .admin-topbar__controls {
     grid-template-columns: 1fr;
     flex-direction: column;
@@ -1564,6 +1582,19 @@ textarea {
 
   .admin-sidebar {
     position: static;
+  }
+
+  .admin-sidebar__menu-toggle {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .admin-sidebar__nav {
+    display: none;
+  }
+
+  .admin-sidebar__nav--open {
+    display: grid;
   }
 
 }

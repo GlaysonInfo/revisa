@@ -9,8 +9,6 @@ type PublicHeaderProps = {
   rootAnchors?: boolean;
 };
 
-const whatsappNumber = "5531982673012";
-
 export function PublicHeader({ rootAnchors = false }: PublicHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -61,13 +59,6 @@ export function PublicHeader({ rootAnchors = false }: PublicHeaderProps) {
           </Link>
         </div>
       </div>
-      <Link
-        href={`https://wa.me/${whatsappNumber}`}
-        className="whatsapp-float"
-        aria-label="Falar com a REVISA no WhatsApp"
-      >
-        WhatsApp
-      </Link>
     </header>
   );
 }

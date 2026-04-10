@@ -1,0 +1,82 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: revisa_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-revisa}
+      POSTGRES_USER: ${POSTGRES_USER:-revisa}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-revisa}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/postgres-init.sql:/docker-entrypoint-initdb.d/postgres-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-revisa} -d ${POSTGRES_DB:-revisa}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - revisa
+
+  api:
+    build:
+      context: ./apps/api
+    container_name: revisa_api
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./apps/api:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    networks:
+      - revisa
+
+  redis:
+    image: redis:7
+    container_name: revisa_redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
+    networks:
+      - revisa
+
+  web:
+    build:
+      context: ./apps/web
+    container_name: revisa_web
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:8000/api/v1
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+    networks:
+      - revisa
+
+  prometheus:
+    image: prom/prometheus:latest
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    volumes:
+      - ./infra/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+    depends_on:
+      - api
+    networks:
+      - revisa
+
+volumes:
+  postgres_data:
+
+networks:
+  revisa:

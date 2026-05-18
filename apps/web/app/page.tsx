@@ -6,13 +6,13 @@ import { PublicHeader } from "../components/public-header";
 
 const territorialCards = [
   {
-    title: "Atendimento e presenca",
-    description: "Escuta qualificada e servicos proximos das pessoas.",
+    title: "Atendimento e presença",
+    description: "Escuta qualificada e serviços próximos das pessoas.",
     image: "/reviva/Atividades do projeto Reviva Betim 2.png",
   },
   {
-    title: "Mutirao social",
-    description: "Acesso a direitos com organizacao e acolhimento.",
+    title: "Mutirão social",
+    description: "Acesso a direitos com organização e acolhimento.",
     image: "/reviva/Social REVISA 2.png",
   },
   {
@@ -22,7 +22,7 @@ const territorialCards = [
   },
   {
     title: "Juventude em movimento",
-    description: "Esporte como ferramenta de inclusao e participacao.",
+    description: "Esporte como ferramenta de inclusao e participação.",
     image: "/reviva/Esporte REVISA 2.png",
   },
 ];
@@ -30,17 +30,17 @@ const territorialCards = [
 const services = [
   {
     icon: "🏃",
-    title: "Esporte e convivencia",
+    title: "Esporte e convivência",
     description: "Futebol, volei, handebol, judo, ballet e atividades coletivas.",
   },
   {
     icon: "🧘",
-    title: "Saude e bem-estar",
-    description: "Yoga, fisioterapia preventiva, meditacao e cuidado comunitario.",
+    title: "Saúde e bem-estar",
+    description: "Yoga, fisioterapia preventiva, meditação e cuidado comunitário.",
   },
   {
     icon: "💻",
-    title: "Educacao e renda",
+    title: "Educação e renda",
     description: "Inclusao digital, cursos livres, empreendedorismo e autonomia.",
   },
 ];
@@ -48,25 +48,25 @@ const services = [
 const axes = [
   {
     title: "Esporte",
-    description: "Futebol, futsal, volei, handebol, judo e ginastica.",
+    description: "Futebol, futsal, volei, handebol, judo e ginástica.",
   },
   {
     title: "Cultura e lazer",
-    description: "Musica, teatro, danca e artesanato.",
+    description: "Música, teatro, dança e artesanato.",
   },
   {
-    title: "Saude e apoio",
-    description: "Grupos, prevencao, acompanhamento e encaminhamentos.",
+    title: "Saúde e apoio",
+    description: "Grupos, prevenção, acompanhamento e encaminhamentos.",
   },
 ];
 
 const institutionalBase = [
   {
-    title: "Resolucao CNAS 109/2009",
-    description: "Servico de Convivencia e Fortalecimento de Vinculos.",
+    title: "Resolução CNAS 109/2009",
+    description: "Serviço de convivência e Fortalecimento de Vínculos.",
   },
   {
-    title: "Resolucao CNAS 182/2025",
+    title: "Resolução CNAS 182/2025",
     description: "Defesa e garantia de direitos.",
   },
   {
@@ -77,42 +77,42 @@ const institutionalBase = [
 
 const gallery = [
   {
-    title: "Acao social",
-    description: "Cadastro, escuta e atendimento no territorio.",
+    title: "Ação social",
+    description: "Cadastro, escuta e atendimento no território.",
     image: "/reviva/Social REVISA 2.png",
   },
   {
     title: "Oficinas e renda",
-    description: "Autonomia, convivio e producao comunitaria.",
+    description: "Autonomia, convívio e produção comunitária.",
     image: "/reviva/Social REVISA 5.png",
   },
   {
     title: "Identidade institucional",
-    description: "Marca forte e presenca reconhecivel.",
+    description: "Marca forte e presença reconhecível.",
     image: "/reviva/Reviva_Betim_Fundo_Claro.png",
   },
 ];
 
 const audiences = [
-  "Criancas, adolescentes e jovens",
+  "Crianças, adolescentes e jovens",
   "Adultos e idosos",
-  "Familias e grupos em vulnerabilidade",
+  "Famílias e grupos em vulnerabilidade",
 ];
 
 const flowSteps = [
   {
     step: "1",
     title: "Pre-cadastro",
-    description: "Inscricao inicial.",
+    description: "Inscrição inicial.",
   },
   {
     step: "2",
     title: "Triagem social",
-    description: "Avaliacao e priorizacao.",
+    description: "Avaliação e priorização.",
   },
   {
     step: "3",
-    title: "Matricula",
+    title: "Matrícula",
     description: "Entrada nas atividades.",
   },
 ];
@@ -129,7 +129,7 @@ export default function HomePage() {
               <p className="public-eyebrow">REVISA | Betim/MG</p>
               <h1>Rede de Proteção Social, Esporte, Saúde e Bem-Estar</h1>
               <p className="public-lead">
-                Atuacao integrada com foco em vinculos, cidadania e prevencao de vulnerabilidades.
+                Atuação integrada com foco em Vínculos, cidadania e prevenção de vulnerabilidades.
               </p>
               <div className="public-hero__cta">
                 <Link href="/participar" className="primary-button">
@@ -156,34 +156,34 @@ export default function HomePage() {
 
         <section id="a-revisa" className="public-section">
           <div className="section-heading">
-            <p className="public-eyebrow">Organizacao da Sociedade Civil</p>
-            <h2>A REVISA atua com protecao social e desenvolvimento comunitario.</h2>
+            <p className="public-eyebrow">Organização da Sociedade Civil</p>
+            <h2>A REVISA atua com proteção social e desenvolvimento comunitário.</h2>
             <p>
-              A REVISA – Rede de Protecao a Vida e a Saude atua em Betim/MG com acoes integradas de assistencia
-              social, esporte, saude e desenvolvimento comunitario.
+              A REVISA – Rede de Proteção a Vida e a Saúde atua em Betim/MG com ações integradas de assistencia
+              social, esporte, Saúde e desenvolvimento comunitário.
             </p>
           </div>
           <div className="institutional-strip">
             <article className="public-card">
               <h3>SCFV</h3>
-              <p>Convivencia, fortalecimento de vinculos e protecao social basica.</p>
+              <p>convivência, fortalecimento de Vínculos e proteção social basica.</p>
             </article>
             <article className="public-card">
               <h3>Defesa de direitos</h3>
-              <p>Articulacao, assessoramento e encaminhamento em rede.</p>
+              <p>Articulação, assessoramento e encaminhamento em rede.</p>
             </article>
             <article className="public-card">
               <h3>Rede socioassistencial</h3>
-              <p>Integracao com CRAS, CREAS, saude, educacao e parceiros locais.</p>
+              <p>Integração com CRAS, CREAS, Saúde, educação e parceiros locais.</p>
             </article>
           </div>
         </section>
 
-        <section id="atuacao" className="public-section">
+        <section id="atuação" className="public-section">
           <div className="section-heading">
-            <p className="public-eyebrow">REVISA no territorio</p>
-            <h2>Presenca ativa com polos, acoes itinerantes e articulacao comunitaria.</h2>
-            <p>Atendimento proximo, mutiroes, bem-estar e esporte como porta de entrada para a cidadania.</p>
+            <p className="public-eyebrow">REVISA no território</p>
+            <h2>presença ativa com polos, ações itinerantes e articulação comunitária.</h2>
+            <p>Atendimento próximo, mutirões, bem-estar e esporte como porta de entrada para a cidadania.</p>
           </div>
           <div className="territory-grid">
             {territorialCards.map((item) => (
@@ -206,10 +206,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="servicos" className="public-section">
+        <section id="serviços" className="public-section">
           <div className="section-heading">
-            <p className="public-eyebrow">Servicos oferecidos</p>
-            <h2>Atuacao estruturada por frentes de cuidado, desenvolvimento e convivio.</h2>
+            <p className="public-eyebrow">serviços oferecidos</p>
+            <h2>Atuação estruturada por frentes de cuidado, desenvolvimento e convívio.</h2>
           </div>
           <div className="service-grid">
             {services.map((item) => (
@@ -226,8 +226,8 @@ export default function HomePage() {
 
         <section className="public-section">
           <div className="section-heading">
-            <p className="public-eyebrow">Eixos de atuacao</p>
-            <h2>Atuacao organizada por servicos, protecao social e desenvolvimento integral.</h2>
+            <p className="public-eyebrow">Eixos de atuação</p>
+            <h2>Atuação organizada por serviços, proteção social e desenvolvimento integral.</h2>
           </div>
           <div className="public-card-grid">
             {axes.map((item) => (
@@ -258,7 +258,7 @@ export default function HomePage() {
         <section id="galeria" className="public-section">
           <div className="section-heading">
             <p className="public-eyebrow">Galeria de atividades</p>
-            <h2>Momentos, acoes e atividades da REVISA no territorio.</h2>
+            <h2>Momentos, ações e atividades da REVISA no território.</h2>
           </div>
           <div className="story-grid">
             {gallery.map((item) => (
@@ -284,8 +284,8 @@ export default function HomePage() {
         <section className="public-section public-section--two-col">
           <article className="public-panel">
             <div className="section-heading">
-              <p className="public-eyebrow">Publico atendido</p>
-              <h2>Presenca ao longo dos ciclos de vida e dos grupos prioritarios.</h2>
+              <p className="public-eyebrow">Público atendido</p>
+              <h2>presença ao longo dos ciclos de vida e dos grupos prioritários.</h2>
             </div>
             <div className="bullet-stack">
               {audiences.map((item) => (
@@ -300,7 +300,7 @@ export default function HomePage() {
           <article className="public-panel">
             <div className="section-heading">
               <p className="public-eyebrow">Como participar</p>
-              <h2>Fluxo de entrada simples e rastreavel.</h2>
+              <h2>Fluxo de entrada simples e rastreável.</h2>
             </div>
             <div className="stepper">
               {flowSteps.map((item) => (
@@ -315,7 +315,7 @@ export default function HomePage() {
             </div>
             <div className="public-hero__cta">
               <Link href="/participar" className="primary-button">
-                Fazer inscricao
+                Fazer inscrição
               </Link>
             </div>
           </article>
@@ -325,7 +325,7 @@ export default function HomePage() {
           <div className="final-cta">
             <div>
               <p className="public-eyebrow">Participe da REVISA</p>
-              <h2>Participe da rede de protecao a vida e a saude em Betim.</h2>
+              <h2>Participe da rede de proteção a vida e a Saúde em Betim.</h2>
             </div>
             <div className="public-hero__cta">
               <Link href="/participar" className="primary-button">
@@ -345,20 +345,12 @@ export default function HomePage() {
           </div>
           <div className="contact-grid">
             <article className="contact-card">
-              <strong>Telefone</strong>
-              <p>(31) 3594-2181</p>
-            </article>
-            <article className="contact-card">
-              <strong>WhatsApp</strong>
-              <p>(31) 98267-3012</p>
-            </article>
-            <article className="contact-card">
               <strong>E-mail</strong>
               <p>sol.lange@yahoo.com.br</p>
             </article>
             <article className="contact-card">
-              <strong>Endereco</strong>
-              <p>Rua Urucuia, nº 352, Brasilia, Betim/MG, CEP 32.600-490</p>
+              <strong>Endereço</strong>
+              <p>Rua Pará de Minas, nº 259, Centro - Betim/MG, CEP 32.600-330</p>
             </article>
           </div>
         </section>
@@ -368,9 +360,9 @@ export default function HomePage() {
             <BrandLockup compact />
           </div>
           <div className="public-footer__meta">
-            <p>REDE DE PROTECAO A VIDA E A SAUDE - REVISA</p>
+            <p>REDE DE PROTEção A VIDA E A Saúde - REVISA</p>
             <p>CNPJ 14.452.770/0001-80</p>
-            <p>Rua Urucuia, nº 352, Brasilia, Betim/MG</p>
+            <p>Rua Pará de Minas, nº 259, Centro - Betim/MG</p>
           </div>
           <div className="public-footer__links">
             <Link href="#inicio">Inicio</Link>
